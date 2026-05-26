@@ -1,15 +1,22 @@
 <template>
-  <KpiCard
-    title="Total Contracts"
-    :value="computedContracts"
-    :info="computedContractsChange + ' from last year'"
-  />
-  <KpiCard
-    title="Total Spend"
-    :value="computedCurrency"
-    :info="computedSpendChange + ' from last year'"
-  />
-  <KpiCard title="Flagged Contracts" :value="computedFlagged" />
+  <div class="overview__wrapper">
+    <section class="overview__section">
+      <h2>Overview</h2>
+      <div class="overview__cards">
+        <KpiCard
+          title="Total Contracts"
+          :value="computedContracts"
+          :info="computedContractsChange + ' from last year'"
+        />
+        <KpiCard
+          title="Total Spend"
+          :value="computedCurrency"
+          :info="computedSpendChange + ' from last year'"
+        />
+        <KpiCard title="Flagged Contracts" :value="computedFlagged" />
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -29,3 +36,24 @@ const computedFlagged = computed(() => formatNumber(rawFlagged.value));
 const computedSpendChange = computed(() => formatPercent(spendChange.value));
 const computedContractsChange = computed(() => formatPercent(contractsChange.value));
 </script>
+
+<style scoped>
+.overview__wrapper {
+  padding: var(--space-8);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.overview__section {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+.overview__cards {
+  display: flex;
+  gap: var(--space-4);
+}
+.overview__cards > * {
+  flex: 1;
+}
+</style>
