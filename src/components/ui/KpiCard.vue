@@ -16,32 +16,31 @@ defineProps<{
 
 <style scoped>
 .kpi-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 24px;
   display: flex;
+  min-width: 0;
   flex-direction: column;
-  gap: 8px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  gap: var(--space-2);
+  box-shadow: var(--shadow-sm);
 }
 
 .kpi-card__title {
-  font-size: 0.875rem;
-  color: #6b7280;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
   font-weight: 500;
-  margin: 0;
 }
 
 .kpi-card__value {
-  font-size: 2rem;
+  font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: #111827;
-  margin: 0;
+  color: var(--color-text-primary);
 }
 
 .kpi-card__info {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
 }
 </style>
